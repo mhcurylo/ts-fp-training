@@ -1,0 +1,22 @@
+{
+  "name": "tdl",
+  "version": "1.0.0",
+  "description": "To do list",
+  "main": "dist/index.js",
+  "author": "mhc",
+  "license": "MIT",
+  "dependencies": {
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "npm run lint && tsc",
+    "lint": "tslint -p tsconfig.json",
+    "watch": "watch 'npm run build && npm start' './src'"
+  },
+  "bin": {
+    "tdl": "dist/index.js"
+  }
+}
