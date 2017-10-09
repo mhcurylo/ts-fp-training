@@ -1,4 +1,4 @@
-import {Func1} from './utils';
+import {Func1, Func2} from './utils';
 
 export interface Functor<T> {
   map<M>(f: Func1<T, M>): Functor<M>;
@@ -16,5 +16,10 @@ export interface Chain<T> extends Apply<T> {
   chain<U>(f: Func1<T, Chain<U>>): Chain<U>;
 }
 
-export interface Monad<T> extends Apply<T>, Chain<T> {
+export interface Monad<T> extends Applicative<T>, Chain<T> {
 }
+
+export interface Foldable<T> {
+  reduce<R>(f: Func2<R, T, R>, v: R): R
+}
+

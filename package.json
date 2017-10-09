@@ -13,11 +13,15 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "npm run lint && tsc",
+    "build": "node fuse.js",
+    "build:system": "node fuse.js && ./scriptify.sh",
     "lint": "tslint -p tsconfig.json",
     "watch": "watch 'npm run build && npm start' './src'"
   },
   "bin": {
     "tdl": "dist/index.js"
+  },
+  "devDependencies": {
+    "fuse-box": "^2.3.3"
   }
 }
