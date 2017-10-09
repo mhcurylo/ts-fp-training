@@ -6,6 +6,7 @@
   "author": "mhc",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^8.0.33",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3",
     "watch": "^1.0.2"

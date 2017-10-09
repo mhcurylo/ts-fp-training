@@ -49,5 +49,5 @@ export const consF = flip(cons);
 export const head = <T>(l: List<T>): T => l.head();
 export const tail = <T>(l: List<T>): List<T> => l.tail();
 export const empty = <T>(): List<T> => new EmptyList() as List<T>;
-export const of = <T>(el: T): List<T> => new ListNode(el, empty() as List<T>);
+export const single = <T>(el: T): List<T> => new ListNode(el, empty() as List<T>);
 export const fromArray = <T>(arr: Array<T>) => arr.reverse().reduce(consF, empty() as List<T>);
