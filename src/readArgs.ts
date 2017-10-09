@@ -1,3 +1,3 @@
-import {io} from './io';
+import {io, IO} from './io';
 
-export const readArgs = io(() => process.args);
+export const readArgs: IO<string[]> = io(() => process.argv);
