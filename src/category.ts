@@ -3,6 +3,7 @@ import {Func1, Func2} from './utils';
 export interface Functor<T> {
   map<M>(f: Func1<T, M>): Functor<M>;
 }
+export const fmap = <T, R> (f: (a: T) => R) => (functor: Functor<T>) => functor.map(f);
 
 export interface Apply<T> extends Functor<T> {
   ap<R>(f: Apply<Func1<T, R>>): Apply<R>;

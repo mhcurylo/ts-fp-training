@@ -1,5 +1,5 @@
 import {Monad, Apply} from './category';
-import {Func0, Func1} from './utils';
+import {Func0, Func1, Unit} from './utils';
 
 export type Func0<Z> = () => Z
 
@@ -24,8 +24,8 @@ export class IO<T> implements Monad<T> {
     return this._fn();
   }
 
-  of(f: Func0<T>) {
-    return new IO(f);
+  of<R>(f: R): IO<R> {
+    return new IO<R>(() => f);
   }
 }
 

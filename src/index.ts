@@ -2,11 +2,23 @@
 
 import * as L from './list';
 import {readArgs} from './readArgs';
-import {trace} from './log';
+import {trace, log} from './log';
+import {Just, Maybe, getOrElse} from './maybe';
+import {fmap} from './category';
+import {Func1} from './utils';
+import {string2RegExp} from 'fuse-box/dist/typings/Utils';
 
+
+
+const head = <T>(arr: T[]): Maybe<T> => Just.of(arr[0]);
+const greet = (name: string) => `Hello! ${name}`;
+const failMessage = 'What is your name stranger?';
+const drop = <T> (num: number) => (arr: T[]) => arr.slice(num);
+
+console.log(process.argv);
 readArgs
-  .map(a => a.join(', '))
-  .chain(trace).unsafePerformIO();
-
-trace(L.fromArray([1,2,3,4,5]).map(x => x + 1).toString()).unsafePerformIO();
-trace(L.fromArray(['1','2','3','4','5']).reduce((p, c) => p + c, "").toString()).unsafePerformIO();
+    .map(drop(2))
+    .map(head)
+    .map(fmap(greet))
+    .map(getOrElse(failMessage))
+    .chain(log).unsafePerformIO();
