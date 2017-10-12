@@ -1,7 +1,7 @@
 import {Func1, Func2} from './utils';
 
 export interface Functor<T> {
-  map<M>(f: Func1<T, M>): Functor<M>;
+  map<M>(f: (v: T) => M): Functor<M>;
 }
 export const fmap = <T, R> (f: (a: T) => R) => (functor: Functor<T>) => functor.map(f);
 
@@ -13,7 +13,7 @@ export interface Applicative<T> extends Apply<T> {
   of<R>(f: R): Applicative<R>;
 }
 
-export interface Chain<T> extends Apply<T> {
+export interface Chain<T> {
   chain<U>(f: Func1<T, Chain<U>>): Chain<U>;
 }
 
