@@ -13,9 +13,11 @@ const greet = (name: string) => `Hello! ${name}`;
 const failMessage = 'What is your name stranger?';
 const drop = <T> (num: number) => (arr: T[]) => arr.slice(num);
 
-readArgs
+const prog = readArgs
     .map(drop(2))
     .map(head)
     .map(fmap(greet))
     .map(getOrElse(failMessage))
-    .chain(log).unsafePerformIO();
+    .chain(log);
+
+prog.unsafePerformIO();

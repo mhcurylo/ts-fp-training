@@ -5,7 +5,7 @@ export type Func0<Z> = () => Z
 
 
 export class IO<T> implements Monad<T> {
-  constructor(private readonly _fn: Func0<T>) {
+  constructor(private readonly _fn: () => T) {
   }
 
   map<B>(f: Func1<T, B>): IO<B> {
