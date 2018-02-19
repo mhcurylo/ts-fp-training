@@ -24,9 +24,7 @@ Profits:
 
 - Hacking TypeScript in the console 
 
-- Fast introduction to haskell 
-
-- Funcitonal Programming vs Pure Functional Programming 
+- Functional Programming vs Pure Functional Programming 
 
 - Introduction to Fantasy Land specification for JS
 
@@ -88,7 +86,7 @@ Profits:
 
 ---
 
-# Interfaces for algebric data structures
+# Interfaces for algebraic data structures
 
 - look at the algebraic interface 
 
@@ -108,7 +106,7 @@ Profits:
 
 # Lets write some Pure IO monad
 
-- IO<T> implemets Monad<T> 
+- IO<T> implements Monad<T> 
 
 - The trick: () => val! (Unit);
 
